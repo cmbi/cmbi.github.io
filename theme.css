@@ -1,0 +1,28 @@
+
+.text-container {
+  padding: 100px;
+}
+
+.section {
+  padding-bottom: 30px;
+}
+
+q {
+  font-weight: bold;
+}
+
+.raw-text {
+  font-family: Courier New;
+  font-size: 12px;
+}
+
+.commandline {
+  white-space: pre;
+  width:600px;
+  padding: 25px;
+  margin-bottom:10px;
+  background-color: black;
+  color: white;
+  font-family: Courier New;
+  font-size: 12px;
+}

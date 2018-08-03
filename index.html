@@ -1,5 +1,521 @@
 <html>
+  <head>
+    <link rel="stylesheet" href="theme.css"></link>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></link>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <title>Working on CMBI Projects in GitHub</title>
+  </head>
   <body>
-    <h1>This is the CMBI page</h1>
+    <div class="text-container">
+      <h1>Working on CMBI Projects in GitHub</h1>
+      <p>
+        At CMBI, we stand for transparent and reproducible science.
+        The documentation and versioning of analysis scripts and software code is an important aspect.
+        That is why CMBI encourages every employee and student to work with github, very much like wetlab scientists describe and keep track of their activities in an electronic lab notebook these days.
+        Although github was designed as a collaborative environment for software developers, it can also be used for project management. (including document versioning)
+        Usually, projects are kept private until the deployment of the software or the publication of a scientific paper describing the analyses or software,
+        but one may also decide to have the project public, for example to stimulate input from the community.
+      </p>
+      <p>
+        Surely, there are many tutorials online on how to user GitHub.
+        There are so many possibilities however, that it may be difficult to find your way.
+        Moreover, we propose to use GitHub, as much as possible and appropriate, in a uniform way.
+        Hence, this small instruction manual to explain how we use GitHub in our department.
+      </p>
+      <div class="section" id="what-is-git">
+        <h2>What is Git and what is GitHub</h2>
+        <p>
+          Git is a commonly used version control system, developed in 2005 by Linus Torvalds. (who also developed the linux kernel)
+          It keeps track of a project's entire history, including every change ever made to it.
+          For beginners it can be somewhat hard to use, but it offers many possibilities.
+        </p>
+        <p>
+          Git is based on a central repository and one or more working copies named <q>clones</q>,
+          with exchange of code-changes in between.
+          There's one repository per project. The repository can be on a different machine from the clone.
+        </p>
+        <p>
+          The git repository server 'GitHub' is a popular way to have git repositories managed.
+          It provides additional tools and features that can make version control with git much easier. Some of them are:
+        </p>
+        <p>
+          <ul>
+            <li>A repository server, accessible from anywhere on the internet.</li>
+            <li>A Web interface shown in <a href="#figure1">figure 1</a>.This interface can be accessed at the url: <q>https://github.com/&lt;your user name&gt;/&lt;your project's name&gt;/</q></li>
+            <li>Graphical clients for Windows and Linux as an alternative to the git commandline interface.</li>
+            <li>The option to duplicate each other's repositories and suggest changes to them.
+                See also the <a href="#forking">forking section</a>.</li>
+            <li>Personalization: the option to let project repositories be owned by either individuals or groups</li> 
+          </ul>
+        </p>
+        <div class="row">
+          <div class="col-xs-4">
+            <div class="panel panel-default" id="figure1">
+              <div class="panel-body">
+                <img src="images/git-web.png" width="300"></img>
+              </div>
+              <div class="panel-footer">Figure 1: a project's GitHub web-interface.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section" id="approach-github">
+        <h2>How to approach GitHub</h2>
+        <p>
+          At CMBI, we use the GitHub server for our projects.
+          It allows us to make quick changes to the code on one machine and to download them on another.
+          The web interface is also used as a discussion platform. (see also the <a href="#pull-request">pull request section</a>)
+          Issues can be viewed and submitted at <q>https://github.com/cmbi/&lt;project name&gt;/issues</q>.
+        </p>
+        <p>
+          The two main protocols we use to interact with the server are HTTPS and SSH.
+          SSH has the advantage that people can deploy keys on the server, removing the need for password prompts.
+        </p>
+      </div>
+      <div class="section" id="account">
+        <h2>Creating an Account</h2>
+        <p>
+          Anyone can make his/her own GitHub account by signing up at <a target="_blank" href="https://github.com/">https://github.com/</a>.
+          It's free. Simply enter a username e-mail address and password.
+        </p>
+      </div>
+      <div class="section" id="add-to-cmbi">
+        <h2>Getting added to the CMBI Organisation</h2>
+        <p>
+          In order to make projects for the CMBI and take advantage of its privileges,
+          your account needs to be added to the list of people at <a href="https://github.com/orgs/cmbi/people" target="_blank">https://github.com/orgs/cmbi/people</a>.
+          To have your account added, contact the <a href="mailto:coos.baakman@radboudumc.nl">current administrator</a> of the CMBI organisation on GitHub and make a request to be invited.
+        </p>
+      </div>
+      <div class="section" id="new-project">
+        <h2>Creating a new CMBI Project (Repository)</h2>
+        <p>
+          Any registered GitHub user can create a repository under his/her own account.
+          That is explained at <a target="_blank" href="https://guides.github.com/activities/hello-world/">https://guides.github.com/activities/hello-world/</a>.
+          However, the policy is that CMBI projects are created as a repository inside the CMBI GitHub organisation.
+          To have a repository created for your project, contact one of the organisation's owners, listed in <a target="_blank" href="https://github.com/orgs/cmbi/people">https://github.com/orgs/cmbi/people</a>.
+          In order to see this list, you must first be added to the CMBI organisation, as explained in the <a href="#add-to-cmbi">CMBI section</a>.
+          When you request an owner to create a new project,
+          you'll have to provide a name and description for the repository.
+          Once created, the repository will be visible at <q>https://github.com/cmbi/&lt;repository name&gt;</q>.
+        </p>
+      </div>
+      <div class="section" id="web-update">
+        <h2>Updating a Repository on the Web-Interface</h2>
+        <p>
+          Besides the commandline tools, there's also the web interface of GitHub.
+          Users can access their projects at <q>https://github.com/&lt;username&gt;/&lt;repository name&gt;/</q>,
+          where the username can also be 'cmbi', if the project is owned by the organisation.
+        </p>
+        <p>
+          To make any changes to a project or to view private projects however,
+          you will be asked to log in with your username and password.
+        </p>
+        <p>
+          Editing a single raw text file is easy.
+          Simply go to <q>https://github.com/&lt;username&gt;/&lt;repository name&gt;/edit/&lt;branch name&gt;/&lt;path to file&gt;</q> and make the changes in the text box.
+          Then commit the changes on the web form.
+        </p>
+        <p>
+          Images and text files can be viewed at <q>https://github.com/&lt;username&gt;/&lt;repository name&gt;/blob/&lt;branch name&gt;/&lt;path to file&gt;</q>.
+        </p>
+        <p>
+          The contents of directories can be viewed at <q>https://github.com/&lt;username&gt;/&lt;repository name&gt;/tree/&lt;branch name&gt;/&lt;path to directory&gt;</q>.
+        </p>
+        <p>
+          Files can be uploaded at <q>https://github.com/&lt;username&gt;/&lt;repository name&gt;/upload/&lt;branch name&gt;/&lt;path to directory&gt;/</q> and a new file can be created at <q>https://github.com/&lt;username&gt;/&lt;repository name&gt;/new/&lt;branch name&gt;/&lt;path to directory&gt;/</q>.
+          These actions also require a commit.
+        </p>
+        <p>
+          Branches can be viewed at <q>https://github.com/<username>/<repository name>/branches</q>, tough from here,
+          the user cannot create or merge branches.
+          This can only be done from the commandline or inside a pull request.
+          See also the <a href="#branching">branching section</a>.
+        </p>
+        <p>
+          A powerful tool on the website is the release page at <q>https://github.com/&lt;username&gt;/&lt;repository name&gt;/releases</q>.
+          There, a developer can create release-packages of his software for external users to download.
+        </p>
+      </div>
+      <div class="section" id="ssh-access">
+        <h2>Enabling Access over SSH (optional)</h2>
+        <div class="row">
+          <div class="col-xs-6">
+            <p>
+              SSH Access allows you to interact with github without getting password prompts all the time.
+              On linux systems, one can easily generate an SSH key by running the following command:
+            </p>
+            <div class="commandline">$ ssh-keygen</div>
+            <p>
+              Simply use the default values for everything.
+            </p>
+            <p>
+              After the command has executed, a public key is created at <q>&lt;your home directory&gt;/.ssh/id_rsa.pub</q>.
+              Simply copy the contents of this file and direct your browser to <a target="_blank" href="https://github.com/settings/ssh/new">https://github.com/settings/ssh/new</a>.
+              Enter a name for your ssh key and paste the contents of the file in the text-box labeled <q>key</q>.
+              This is shown in <a href="#figure2">figure 2</a>.
+              After the key is inserted successfully, the user will be automatically authenticated from the machine where the key was generated.
+              Though each individual GitHub clone must be set up to use SSH. This is explained in the <a href="#forking">forking section</a>.
+            </p>
+          </div>
+          <div class="col-xs-5">
+            <div class="panel panel-default" id="figure2">
+              <div class="panel-body">
+                <img src="images/enter-key.png" width="500"></img>
+              </div>
+              <div class="panel-footer">Figure 2: entering an SSH key</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section" id="directory-structure">
+        <h2>The Directory Structure of a Project</h2>
+        <p>
+          The directory structure that you want to maintain for a project depends on the programming language, software and libraries that you use.
+          Every project should contain a readme with the general information about the project and a description of the directory structure.
+          See also the <a href="#project-documentation">project documentation section</a>.
+          It is good practice to separate code from (test) data and from results.
+          Figure 3 shows only two examples of the many possibilities there are.
+          For some software it's mandatory to have a certain directory structure, for other software it's optional.
+          General rule is that you should separate files that are different and keep files that are alike together.
+          Binaries should be separated from source files and resource files like images, html and css should also have their own directories.
+          Data files and result files should not be included in a git repository.
+        </p>
+        <div class="panel panel-default" id="figure3" style="display:inline-block">
+          <div class="panel-body">
+            <div>
+              <div>
+                <b>a)</b>
+                <img src="images/python-dirs.png" height="300"></img>
+              </div>
+              <div>
+                <b>b)</b>
+                <img src="images/maven-dirs.png" height="300"></img>
+              </div>
+            </div>
+          </div>
+          <div class="panel-footer">
+              Figure 3: examples of directory structure in a project</br>
+              a) a python project</br>
+              b) a java project, using maven
+          </div>
+        </div>
+      </div>
+      <div class="section" id="project-documentation">
+        <h2>Project Documentation</h2>
+        <p>
+          It's highly recommended to create a README.md file for each project.
+          This allows others to understand the software more easily and make someone's code run without the help of the author.
+          GitHub can visualize a README.md file that is written with hashtag-headers, like this:
+        </p>
+        <div class="panel panel-default" style="width:400px">
+          <div class="panel-body">
+            <div class="raw-text">
+              # &lt;header&gt;</br>
+              &lt;text&gt;</br>
+              &lt;text&gt;</br>
+              &lt;text&gt;</br>
+              ## &lt;subheader&gt;</br>
+              &lt;text&gt;</br>
+              ## &lt;subheader&gt;</br>
+              ### &lt;subheader of subheader&gt;</br>
+              &lt;text&gt;</br>
+              &lt;text&gt;</br>
+              # &lt;header&gt;</br>
+              &lt;text&gt;
+            </div>
+          </div>
+        </div>
+        <p>
+          Sometimes the README file is written in xml instead. GitHub can also visualize that.
+          What a README file should contain:
+          <ul>
+            <li>The project title and description</li>
+            <li>Instructions on how to get started: what software needs to be installed and how to install the project's software<li>
+            <li>Instructions on how to run tests</li>
+            <li>Authors and aknowledgements</li>
+          </ul>
+          GitHub also has the option to create wiki pages for a project.
+          For this, see: <a target="blank" href="https://guides.github.com/features/wikis/">https://guides.github.com/features/wikis/</a>
+        </p>
+      </div>
+      <div class="section" id="git-ignore">
+        <h2>The Git Ignore File</h2>
+        <p>
+          The file named '.gitignore' can be present in every repository.
+          It allows the developer to instruct git which files it should not detect changes on.
+          This is generally used for files that contain input or output data or files that are automatically generated.
+          The file has a simple syntax:
+          <ul>
+            <li>Lines starting in a hashtag(#) are considered comments</li>
+            <li>Other lines are filenames to ignore or wildcards to filenames.
+                See also: <a target="_blank" href="http://tldp.org/LDP/GNU-Linux-Tools-Summary/html/x11655.htm">http://tldp.org/LDP/GNU-Linux-Tools-Summary/html/x11655.htm</a></li>
+          </ul>
+        </p>
+      </div>
+      <div class="section" id="testing">
+        <h2>Project Tests</h2>
+        <p>
+          All good software projects have tests included.
+          These are tiny files with source code that can be run to verify that the main source code is still functioning correctly.
+          Generally we have two types of tests:
+
+          <ul>
+            <li>Unit tests, that make an isolated piece of code run without any external influence.
+                So without websites, databases or other pieces of code.
+                Unit tests are generally very short tests and they only test about ten lines of code.
+                They are very useful to see whether the code still does the same thing after changing a few lines.</li>
+            <li>Integration tests, that check the code's integration with other datasources and software.
+                These may depend on websites, installed software and large databases that may be on disk.
+                An integration test can take longer to finish and is useful for telling wether the code still works correctly together with other datasources and software.</li>
+          </ul>
+
+          Test files of coarse, have to be stored in a separate directory.
+        </p>
+      </div>
+      <div class="section" id="working-together">
+        <h2>Working Together on a Project</h2>
+        <p>
+          Technically, two people can work on the same project by each sending their own commits to the same branch and downloading them from each other.
+          See also the <a href="#branching">branching section</a>.
+          However, most of the time each person works on a separate feature or bugfix and people have to communicate on how to make every change work well with the rest of the code.
+          This should be done by making forks of the main repository and sending pull requests, that can be reviewed by an appointed project coordinator.
+          See also the <a href="#forking">forking section</a> and the <a href="#pull-request">pull requests section</a>.
+        </p>
+      </div>
+      <div class="section" id="forking">
+        <h2>Forking a CMBI Repository</h2>
+        <p>
+          Forking is a method that allows you to keep a personalized version of a CMBI repository. This separate version is called a <q>fork</q>.
+          <a href="#figure4">Figure 4a</a> illustrates how forking works. The idea is that each developer keeps his/her own fork and makes changes to it.
+          Once the developer has tested the changes and verified that everything works as supposed to, he/she sends a pull request to the
+          CMBI organisation.
+        </p>
+        <div class="panel panel-default" id="figure4" style="width:1300px">
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-xs-6"><b style="position:absolute; bottom:0; left: 0">a)</b><img src="images/centralized-github-4.png" width="600"></img></div>
+              <div class="col-xs-6"><b style="position:absolute; bottom:0; left: 0">b)</b><img src="images/fork-button.png" width="500"></img></div>
+            </div>
+          </div>
+          <div class="panel-footer">Figure 4:</br>
+                                    a) four different GitHub users, each having their own Fork repository and Clone.</br>
+                                    b) the repository's page with the fork button, indicated with a red square.</div>
+        </div>
+        <p>
+          To fork a repository, navigate to the its page at <q>https://github.com/cmbi/&lt;repository name&gt;</q> and click the fork button. (<a href="#figure4">figure 4b</a>)
+          Select your own developer account and GitHub will create your fork.
+        </p>
+        <p>
+          To clone your fork on a linux system, navigate to your projects directory and type:
+        </p>
+        <div class="commandline">$ git clone https://github.com/&lt;your user name&gt;/&lt;your repository name&gt;.git</div>
+        <p>
+          Or if you're using SSH:
+        </p>
+        <div class="commandline">$ git clone git@github.com:&lt;your user name&gt;/&lt;your repository name&gt;.git</div>
+        <p>
+          This will create a clone in a directory, that is named after your repository.
+          You can make any change you want to it, which can later be uploaded to your personal fork.
+        </p>
+        <p>
+          It's useful to have your fork keep track of the original upstream fork, in case someone else might make changes to it.
+          Adding a git remote allows you to download changes and update your own fork.
+          To add the upstream CMBI fork as a remote, you must type the following inside your clone's directory:
+        </p>
+        <div class="commandline">$ git remote add upstream https://github.com/cmbi/&lt;your repository name&gt;</div>
+        <p>
+          In the <a href="#branching">branching section</a> it will be explained how to merge your fork with the upstream fork.
+        </p>
+      </div>
+      <div class="section" id="changes">
+        <h2>Making Changes to a Repository</h2>
+        <p>
+          The git software can automatically detect changes you make to files and directories in a local clone. Simply type the following after editing a file:
+        </p>
+        <div class="commandline">$ git status</div>
+        <p>
+          It might show you something like this:
+        </p>
+        <div class="commandline">On branch master
+Your branch is ahead of 'origin/master' by 24 commits.
+  (use "git push" to publish your local commits)
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+<font color="red">
+    modified:   docker-compose.yml
+    modified:   tests/integration/test_tasks.py
+</font>
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+<font color="red">
+    domain-compare.txt
+    gap-placement.txt
+    model-quality.csv
+    pdb-quality.csv</font></div>
+        <p>
+          Though git detects changes, it does not automatically upload them to the repository. You'll have to decide what to do with each change first.
+        </p>
+        <p>
+          To undo all changes to a file, type:
+        </p>
+        <div class="commandline">$ git checkout -f &lt;filename&gt;</div>
+        <p>
+          To add a new file, type:
+        </p>
+        <div class="commandline">$ git add &lt;filename&gt;</div>
+        <p>
+          To remove a previously added file, type:
+        </p>
+        <div class="commandline">$ git rm &lt;filename&gt;</div>
+        <p>
+          To commit changes to a previously added file, type:
+        </p>
+        <div class="commandline">$ git commit &lt;filename&gt;</div>
+        <p>
+          Each commit is stored by git, together with your username and the time of comitting. Git also remembers the order of the commits.
+          However, the commits you make in your clone directory are local only. To upload all local commits to the remote repository type:
+        </p>
+        <div class="commandline">$ git push origin &lt;branch name&gt;</div>
+        <p>
+          <q>origin</q> is a repository location that is configured by default when you make a clone.
+          The branch name indicates in which branch your commits will end up in the repository. This is usually the same branch you're on locally.
+          The git status command can tell you which branch you're on. Read the <a href="#branching">branching section</a> for more information about branches.
+        </p>
+        <p>
+          Sometimes a push fails, because the remote repository has been edited by someone else or by you from a different computer.
+          You then have to download these new commits first.
+          To download commits that you don't have locally, type:
+        </p>
+        <div class="commandline">$ git pull</div>
+        <p>
+          A pull might reveal some conflicting changes. In that case, you have to modify your files manually to resolve the conflicts and then do another commit.
+        </p>
+      </div>
+      <div class="section" id="branching">
+        <h2>Branching</h2>
+        <div class="row">
+          <div class="col-xs-6">
+            <p>
+              As your project develops, all commits you make are added to the branch you are currently working on.
+              It might sometimes be handy however, to make a temporary spin-off copy of your project to make separate commits on.
+              This is done by making branches.
+              You can split off a new branch at any time and continue to work on that branch.
+              <a href="#figure5">Figure 5</a> illustrates how a branch called <q>feature</q> is split from the default <q>master</q> branch.
+            </p>
+          </div>
+          <div class="col-xs-6">
+            <div class="panel panel-default" id="figure5">
+              <div class="panel-body">
+                <img src="images/branch.png" width="400"></img>
+              </div>
+              <div class="panel-footer">Figure 5: seven commits and two branches. The feature branch has been split off the master branch.</div>
+            </div>
+          </div>
+        </div>
+        <p>
+          By default, every repository starts with a branch named <q>master</q>. You can split off a new one by typing:
+        </p>
+        <div class="commandline">$ git checkout -b &lt;branch name&gt;</div>
+        <p>
+          This will automatically put your clone in the new local branch you've created. From then on, every commit you make will then be placed in that branch.
+          It's good practice to split off a new branch for every new feature you add to a project and for every bug fix.
+        </p>
+        <p>
+          To switch back to a different, existing branch, type:
+        </p>
+        <div class="commandline">$ git checkout &lt;branch name&gt;</div>
+        <p>
+          The git checkout command only creates local branches however. These are limited to your clone.
+          You can upload a local branch to a remote branch by specifying a name in the git push command. Explained in the <a href="#changes">changes section</a>.
+          To locally fetch remote branches from a repository, type:
+        </p>
+        <div class="commandline">$ git fetch origin</div>
+        <p>
+          Or if you added a remote called <q>upstream</q> as indicated in the <a href="#forking">forking section</a>, type:
+        </p>
+        <div class="commandline">$ git fetch upstream</div>
+        <p>
+          To view all of your remote branches in a particular repository, visit <q>https://github.com/&lt;your user name&gt;/&lt;your repository name&gt;/branches</q>.
+          To view all of your local branches, type:
+        </p>
+        <div class="commandline">$ git branch</div>
+        <p>
+          It's also possible to merge two branches. To merge a local branch into your current local branch, type:
+        </p>
+        <div class="commandline">$ git merge &lt;branch name&gt;</div>
+        <p>
+          To merge a remote <q>fetched</q> branch into your current local branch, type:
+        </p>
+        <div class="commandline">$ git merge origin/&lt;branch name&gt;</div>
+        <p>
+          Or, if working together with other developers and using an upstream fork:
+        </p>
+        <div class="commandline">$ git merge upstream/&lt;branch name&gt;</div>
+        <p>
+          Contributers to CMBI projects are supposed to create new branches for every feature they wish to add and for every bug they wish to fix.
+          It's habit that they upload their changes from such a feature branch, not from the master branch.
+        </p>
+      </div>
+      <div class="section" id="pull-request">
+        <h2>Sending a Pull Request</h2>
+        <p>
+          Developers that are not owner of the CMBI organisation can't modify the project repositories directly. That's why they have to fork them instead.
+          Read the <a href="#forking">forking section</a> to learn about forks.
+          When you have made changes in your personal fork and you want it to be merged with the CMBI's fork, you can create a pull request.
+          This is a digital request that allows GitHub users to exchange commits and communicate.
+          The owner of a repository can choose whether to include the commits or not.
+          <a href="#figure4">Figure 4a</a> also illustrates how pull requests work.
+        </p>
+        <p>
+          Pull requests to CMBI repositories are typically created from a custom branch on a personal fork.
+          To make a pull request, you must visit the GitHub branches page at <q>https://github.com/&lt;your user name&gt;/&lt;your repository name&gt;/branches</q>.
+          (<a href="#figure6">figure 6a</a>)
+          There you will find the buttons for creating a pull request to the main fork.
+          Simply choose which branch and fork should merge with with other branch and fork and leave a title and comment.
+          Once your pull request is created, you should wait for one of the CMBI owners to review your changes.
+          He/She will then either approve the pull request, allowing you to merge it, or leave a comment, requesting additional changes. (<a href="#figure6">figure 6b</a>)
+          Visit <q>https://github.com/cmbi/&lt;your repository name&gt;/pulls</q> to see the status of all your active pull requests. You will also be notified by e-mail if anything is updated.
+        </p>
+        <div class="panel panel-default" id="figure6" style="display:inline-block">
+          <div class="panel-body">
+            <div style="border-style: solid; border-width: 1px; border-color: #D3D3D3">
+              <b>a)</b><img src="images/pull-request-button.png" width="600"></img></br>
+            </div>
+            <div style="border-style: solid; border-width: 1px; border-color: #D3D3D3">
+              <b>b)</b><img src="images/pull-request.png" width="600"></img>
+            </div>
+          </div>
+          <div class="panel-footer">Figure 6:</br>
+                                    a) The pull request buttons on the GitHub branches page.</br>
+                                    b) The pull request page, showing a discussion between two developers.</div>
+        </div>
+        <p>
+          Be clear in your pull requests. Let the CMBI owners know why you make changes and how you fixed certain bugs.
+          This reduces the need for additional questions and increases the chance that your changes will be approved.
+        </p>
+        <p>
+          For further reading, see:
+        </p>
+        <ul>
+          <li><a target="_blank" href="https://git-scm.com/docs/gittutorial">https://git-scm.com/docs/gittutorial</a></li>
+          <li><a target="_blank" href="https://stackoverflow.com">https://stackoverflow.com</a></li>
+          <li><a target="_blank" href="https://guides.github.com/">https://guides.github.com/</a></li>
+          <li><a target="_blank" href="https://blog.github.com/">https://blog.github.com/</a></li>
+          <li><a target="_blank" href="https://git-scm.com/book/en/v2/Getting-Started-Git-Basics">https://git-scm.com/book/en/v2/Getting-Started-Git-Basics</a></li>
+          <li><a target="_blank" href="https://nvie.com/posts/a-successful-git-branching-model/">https://nvie.com/posts/a-successful-git-branching-model/</a></li>
+        </ul>
+        <p>
+          Reference Materials:
+        </p>
+        <ul>
+          <li><a target="_blank" href="https://stackoverflow.com/questions/tagged/git">https://stackoverflow.com/questions/tagged/git</a></li>
+          <li><a target="_blank" href="https://guides.github.com/">https://guides.github.com/</a></li>
+        </ul>
+      </div>
+    </div>
   </body>
 </html>
